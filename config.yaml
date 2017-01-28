@@ -1,0 +1,7 @@
+User Agent: 'MoviesMod, a Taskerbot instance, run by the moderators of /r/movies'
+Username: 'MoviesMod'
+Password: 'taskerbot'
+Client ID: 'client_id'
+Client Secret: 'client_secret'
+Subreddits:
+    - 'IHateRMovies'
