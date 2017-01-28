@@ -27,7 +27,7 @@ class Bot(object):
                                self.r.subreddit(subreddit).moderator())
             logging.info('Mods loaded: %s.', sub['mods'])
             logging.info('Loading reasons…')
-            sub['reasons'] = yaml.load(self.r.subreddit(subreddit).wiki['taskerbot'].content_md)
+            sub['reasons'] = yaml.load(self.r.subreddit(subreddit).wiki['moviesmod'].content_md)
             logging.info('Reasons loaded.')
 
     def refresh_sub(self, subreddit):
@@ -39,7 +39,7 @@ class Bot(object):
         logging.info('Mods loaded: %s.', sub['mods'])
         logging.info('Loading reasons…')
         sub['reasons'] = yaml.load(html.unescape(
-            self.r.subreddit(subreddit).wiki['taskerbot'].content_md))
+            self.r.subreddit(subreddit).wiki['moviesmod'].content_md))
         logging.info('Reasons loaded.')
 
     def check_comments(self, subreddit):
@@ -120,7 +120,7 @@ class Bot(object):
                 report['author'], target.author.name))
 
     def log(self, subreddit, msg):
-        logs_page = self.r.subreddit(subreddit).wiki['taskerbot_logs']
+        logs_page = self.r.subreddit(subreddit).wiki['moviesmod_logs']
         try:
             logs_content = logs_page.content_md
         except TypeError:
