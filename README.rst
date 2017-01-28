@@ -81,11 +81,11 @@ Removal reasons
 This step must be performed for every new subreddit you want MoviesMod to
 patrol.
 
-1. Create a new wiki page on the subreddit called ``MoviesMod``.
+1. Create a new wiki page on the subreddit called ``moviesmod``.
    For example, if you want MoviesMod to patrol ``/r/movies``, you must create
-   ``/r/movies/wiki/MoviesMod``.
+   ``/r/movies/wiki/moviesmod``.
 2. Fill the page with the reasons you want -- ``Header``, ``Footer`` and
-   ``Generic`` are required reasons so make sure you include at least those: https://www.reddit.com/r/MovieMods/wiki/rmoviesbot
+   ``Generic`` are required reasons so make sure you include at least those: https://www.reddit.com/r/MovieMods/wiki/moviesmod
    
    **Reasons' keys cannot contain spaces** (e.g. in the example above, ``1``
    and ``spam`` are fine, but ``reason 2`` is not).
@@ -101,7 +101,7 @@ patrol.
    "View source" in the bottom right).
 
    __ https://www.reddit.com/r/Android/wiki/taskerbot
-3. Create a new wiki page on the subreddit called ``MoviesMod_logs``. You can
+3. Create a new wiki page on the subreddit called ``moviesmod_logs``. You can
    keep it blank (MoviesMod will always append to it). This page will be used
    to log mod actions.
 
