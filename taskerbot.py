@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import html
 import logging
 import re
@@ -25,8 +27,7 @@ class Bot(object):
                                self.r.subreddit(subreddit).moderator())
             logging.info('Mods loaded: %s.', sub['mods'])
             logging.info('Loading reasons…')
-            sub['reasons'] = yaml.load(html.unescape(
-                self.r.subreddit(subreddit).wiki['taskerbot'].content_md))
+            sub['reasons'] = yaml.load(self.r.subreddit(subreddit).wiki['taskerbot'].content_md)
             logging.info('Reasons loaded.')
 
     def refresh_sub(self, subreddit):
@@ -98,19 +99,7 @@ class Bot(object):
 
             self.log(subreddit, '{} removed {}'.format(
                 report['author'], permalink))
-        # Check for @spam command.
-        if report['reason'].lower().startswith('@spam'):
-            if 'source' in report:
-                report['source'].mod.remove()
-            target.mod.remove(spam=True)
-            if isinstance(target, Submission):
-                logging.info('Removed submission (spam).')
-                permalink = target.permalink
-            elif isinstance(target, Comment):
-                logging.info('Removed comment (spam).')
-                permalink = target.permalink(fast=True)
-            self.log(subreddit, '{} removed {} (spam)'.format(
-                report['author'], permalink))
+
         # Check for @ban command.
         match = re.search(r'@ban (\d*) "([^"]*)" "([^"]*)"', report['reason'],
                           re.IGNORECASE)
